@@ -2,7 +2,47 @@
 title: "Distill for R Markdown"
 description: |
   Scientific and technical writing, native to the web
-output:
-  distill::distill_article:
-    self_contained: false
+author:
+  - name: Nora Jones 
+    url: https://example.com/norajones
+    affiliation: Spacely Sprockets
+    affiliation_url: https://example.com/spacelysprokets
+date: "`r Sys.Date()`"
+output: distill::distill_article
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web. 
+
+## Figures
+
+```{r, layout="l-body-outset", fig.width=6, fig.height=1.5}
+library(ggplot2)
+ggplot(diamonds, aes(carat, price)) + geom_smooth() +
+  facet_grid(~ cut)
+```
+
+## Tables
+
+```{r, layout="l-body-outset"}
+library(rmarkdown)
+paged_table(mtcars)
+```
+
+## Equations
+
+$$
+\sigma = \sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i -\mu)^2}
+$$
+
+
+
+Learn more about using Distill for R Markdown at <https://rstudio.github.io/distill>.
+
+
+
+
+
